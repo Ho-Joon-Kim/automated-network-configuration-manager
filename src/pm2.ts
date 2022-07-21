@@ -22,5 +22,6 @@ export const getProgramList = async () => {
     return;
   });
 
+  console.log('[func] - getProgramList success');
   return programList;
 };

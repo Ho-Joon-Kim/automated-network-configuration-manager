@@ -13,6 +13,7 @@ const start = async () => {
   console.log('[start] - Program start');
   while (true) {
     const programList = await getProgramList(); // get pm2 programName list
+    console.log(programList);
 
     if (programList.length < ConfiguredProgramList.length) {
       // check length of initialized programs and pm2 programs
@@ -48,7 +49,7 @@ const start = async () => {
       ConfiguredProgramList.push(programName);
     }
 
-    await delay(5000);
+    await delay(30000);
   }
 };
 start();
