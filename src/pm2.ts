@@ -15,8 +15,11 @@ export const getProgramList = async () => {
         } else {
           console.log('[check] - exist');
         }
+        return;
       });
+      return;
     });
+    return;
   });
 
   return programList;
