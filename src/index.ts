@@ -9,8 +9,8 @@ dotenv.config();
 
 let ConfiguredProgramList: string[] = [];
 
-while (1) {
-  async () => {
+async () => {
+  while (true) {
     const programList = getProgramList(); // get pm2 programName list
 
     if (programList.length < ConfiguredProgramList.length) {
@@ -48,5 +48,5 @@ while (1) {
     }
 
     delay(5000);
-  };
-}
+  }
+};
