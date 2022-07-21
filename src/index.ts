@@ -12,14 +12,14 @@ let ConfiguredProgramList: string[] = [];
 const start = async () => {
   console.log('[start] - Program start');
   while (true) {
-    const programList = getProgramList(); // get pm2 programName list
+    const programList = await getProgramList(); // get pm2 programName list
 
     if (programList.length < ConfiguredProgramList.length) {
       // check length of initialized programs and pm2 programs
       console.log('[mod] - Program delete sequence mode');
     }
 
-    for (const programName of programList) {
+    for await (const programName of programList) {
       console.log('[init] - start configurator...');
       console.log('[data] -', programName);
       // program name will be <subdomain>:<port>
@@ -48,7 +48,7 @@ const start = async () => {
       ConfiguredProgramList.push(programName);
     }
 
-    delay(5000);
+    await delay(5000);
   }
 };
 start();
