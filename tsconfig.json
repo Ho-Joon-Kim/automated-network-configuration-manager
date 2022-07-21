@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@validator/api-property": [
+        "libs/api-property/src"
+      ],
+      "@validator/api-property/*": [
+        "libs/api-property/src/*"
+      ],
+      "@third-party/direct-send": [
+        "libs/direct-send/src"
+      ],
+      "@third-party/direct-send/*": [
+        "libs/direct-send/src/*"
+      ],
+      "@third-party/aws": [
+        "libs/aws/src"
+      ],
+      "@third-party/aws/*": [
+        "libs/aws/src/*"
+      ]
+    },
+    "target": "ES2019",
+    "outDir": "dist",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "incremental": true,
+    "declaration": true,
+    "newLine": "lf",
+    "strict": false,
+    "strictFunctionTypes": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": false,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "removeComments": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "typings/global.ts",
+    "src/**/*",
+    "test/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
