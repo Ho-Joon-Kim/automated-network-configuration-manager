@@ -11,6 +11,7 @@ let ConfiguredProgramList: string[] = [];
 
 async () => {
   while (true) {
+    console.log('[start] - Program start');
     const programList = getProgramList(); // get pm2 programName list
 
     if (programList.length < ConfiguredProgramList.length) {
