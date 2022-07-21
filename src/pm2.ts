@@ -6,7 +6,9 @@ export const getProgramList = async () => {
 
   await pm2.connect(async (err) => {
     await pm2.list(async (err, list) => {
-      await list.forEach(async (data) => {
+      console.log(list.length);
+
+      list.forEach(async (data) => {
         console.log('[check] - Check pm2 program name:', data.name);
         if (data.name && !process.env['EXCLUDE_PM2_PROCESS_NAME_LIST']?.split(',').includes(data.name)) {
           // 이름 정합성 테스트 후에 해야 함
@@ -15,8 +17,8 @@ export const getProgramList = async () => {
         } else {
           console.log('[check] - exist');
         }
-        return;
       });
+
       return;
     });
     return;
