@@ -9,7 +9,7 @@ dotenv.config();
 
 let ConfiguredProgramList: string[] = [];
 
-async () => {
+const start = async () => {
   while (true) {
     console.log('[start] - Program start');
     const programList = getProgramList(); // get pm2 programName list
@@ -51,3 +51,4 @@ async () => {
     delay(5000);
   }
 };
+start();
