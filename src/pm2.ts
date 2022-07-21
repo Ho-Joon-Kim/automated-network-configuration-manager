@@ -1,6 +1,7 @@
 import pm2 from 'pm2';
 
 export const getProgramList = () => {
+  console.log('[func] - getProgramList');
   let programList: string[] = [];
 
   pm2.connect((err) => {

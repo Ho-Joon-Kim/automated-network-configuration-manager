@@ -10,8 +10,8 @@ dotenv.config();
 let ConfiguredProgramList: string[] = [];
 
 const start = async () => {
+  console.log('[start] - Program start');
   while (true) {
-    console.log('[start] - Program start');
     const programList = getProgramList(); // get pm2 programName list
 
     if (programList.length < ConfiguredProgramList.length) {
