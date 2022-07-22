@@ -32,8 +32,10 @@ export const getCloudflareUrls = async () => {
     const file = fs.readFileSync(confFile, 'utf8');
     const configData = await YAML.parse(file);
 
-    for (let i = 0; i < configData.ingress.length; i++) {
-      if (configData.ingres[i].hasOwnProperty('hostname')) {
+    for (let i = 0; i <= configData.ingress.length; i++) {
+      console.log(configData.ingres[i]);
+      
+      if (configData.ingres[i] && configData.ingres[i].hasOwnProperty('hostname')) {
         list.push(String(configData.ingres[i].hostname));
       }
     }
