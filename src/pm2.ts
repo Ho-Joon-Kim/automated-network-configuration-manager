@@ -1,4 +1,4 @@
-import pm2 from 'pm2';
+import pm2 from 'pm2-promise';
 
 export const getProgramList = async () => {
   console.log('[func] - getProgramList');
@@ -8,7 +8,7 @@ export const getProgramList = async () => {
     await pm2.list(async (err, list) => {
       console.log(list.length);
 
-      list.forEach(async (data) => {
+      for await (const data of list) {
         console.log('[check] - Check pm2 program name:', data.name);
         if (data.name && !process.env['EXCLUDE_PM2_PROCESS_NAME_LIST']?.split(',').includes(data.name)) {
           // 이름 정합성 테스트 후에 해야 함
@@ -17,8 +17,7 @@ export const getProgramList = async () => {
         } else {
           console.log('[check] - exist');
         }
-      });
-
+      }
       return;
     });
     return;
