@@ -33,7 +33,7 @@ export const getCloudflareUrls = async () => {
     const configData = await YAML.parse(file);
 
     for (let i = 0; i <= configData.ingress.length; i++) {
-      if (configData.ingres[i] && configData.ingress[i]['hostname']) {
+      if (configData.ingress[i] && configData.ingress[i]['hostname']) {
         list.push(String(configData.ingress[i].hostname));
       }
     }
