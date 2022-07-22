@@ -35,6 +35,8 @@ export const getCloudflareUrls = async () => {
     console.log(confFile);
     console.log(file);
     console.log(configData);
+    console.log(configData.ingress);
+    console.log(configData.ingress.length);
 
     for (let i = 0; i <= configData.ingress.length; i++) {
       if (configData.ingres[i] && configData.ingres[i].hasOwnProperty('hostname')) {
