@@ -17,10 +17,15 @@ export const getProgramList = async () => {
         } else {
           console.log('[check] - exist');
         }
+        console.log(programList);
       }
-      return;
+
+      console.log('[log] - for await done');
+      return programList;
     });
-    return;
+
+    console.log('[log] - for await done');
+    return programList;
   });
 
   console.log('[func] - getProgramList success');
