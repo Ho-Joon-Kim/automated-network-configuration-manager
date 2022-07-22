@@ -20,27 +20,27 @@ const start = async () => {
     }
 
     for await (const programName of programList) {
-        console.log('[start] -', programName);
-        // program name will be <subdomain>:<port>
-        if (ConfiguredProgramList.includes(programName)) {
-          console.log('[init] - This program already configured');
-          continue;
-        }
-        if (!isProgramPortValidated(programName)) {
-          // check program port validation
-          console.log('[validator] - This program port is out of range');
-          continue;
-        }
-        // check program name validation
-        // check nginx conf is exist
-        // check cloudflare conf is exist
-        await createNginxConfig(programName); // add nginx conf file
-        await reloadNginxConfig();
-        await addCloudflareConfig(programName); // add cloudflare conf
-        await reloadCloudflareConfig();
-        // send jandi
-        sendJandiLog(programName, ['신규 추가', programName.split(':')[1] + 'wimcorp.dev', ' ', '현재 리스트'].concat(await getCloudflareUrls()));
-        ConfiguredProgramList.push(programName);
+      console.log('[start] -', programName);
+      // program name will be <subdomain>:<port>
+      if (ConfiguredProgramList.includes(programName)) {
+        console.log('[init] - This program already configured');
+        continue;
+      }
+      if (!isProgramPortValidated(programName)) {
+        // check program port validation
+        console.log('[validator] - This program port is out of range');
+        continue;
+      }
+      // check program name validation
+      // check nginx conf is exist
+      // check cloudflare conf is exist
+      await createNginxConfig(programName); // add nginx conf file
+      await reloadNginxConfig();
+      await addCloudflareConfig(programName); // add cloudflare conf
+      await reloadCloudflareConfig();
+      // send jandi
+      await sendJandiLog(programName, ['신규 추가', programName.split(':')[0] + 'wimcorp.dev', ' ', '현재 리스트'].concat(await getCloudflareUrls()));
+      ConfiguredProgramList.push(programName);
     }
 
     await delay(30000);
